@@ -71,7 +71,8 @@ export GITHUB_TOKEN="your_github_token_here"
 <details>
 <summary><strong>🤔 Why virtual environment?</strong></summary>
 
-Modern Python installations (especially via Homebrew) prevent system-wide package installation to avoid conflicts. A virtual environment creates an isolated Python environment just for this project.
+Modern Python installations often prevent system-wide package installation to avoid conflicts and protect system tools.  
+Using a virtual environment creates an isolated space for your project’s dependencies, making setup safer and more portable on any operating system.
 
 **To use the script later:**
 

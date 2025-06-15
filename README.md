@@ -2,20 +2,34 @@
 
 > A handy script to quickly open issues on any GitHub repo, right from your terminal.
 
-[![License: MIT](https://img.shields.io/badge/Licens## 🐛 Troubleshooting
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.6+](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/)
+
+---
+
+## 🔑 Token Authentication
+
+| Method               | Command                       | Description                 |
+| -------------------- | ----------------------------- | --------------------------- |
+| Environment Variable | `export GITHUB_TOKEN="token"` | Recommended for security    |
+| Command Flag         | `--token "token"`             | One-time use                |
+| Interactive Prompt   | _(automatic)_                 | Fallback if token not found |
+
+---
+
+## 🐛 Troubleshooting
 
 <details>
 <summary><strong>Common Issues & Solutions</strong></summary>
 
-| Issue                           | Solution                                                     |
-| ------------------------------- | ------------------------------------------------------------ |
-| **"GitHub token not found"**    | Set `export GITHUB_TOKEN="your_token"` or use `--token` flag |
-| **"Permission denied"**         | Run `chmod +x create_issue.py`                               |
-| **"requests module not found"** | Install with `pip install requests`                          |
-| **"404 error"**                 | Check repository name and token permissions                  |
+| Issue                           | Solution                                                                                                     |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| **"GitHub token not found"**    | Set `export GITHUB_TOKEN="your_token"` or use `--token` flag                                                 |
+| **"Permission denied"**         | Run `chmod +x create_issue.py`                                                                               |
+| **"requests module not found"** | Install with virtual environment: `python3 -m venv venv && source venv/bin/activate && pip install requests` |
+| **"404 error"**                 | Check repository name and token permissions                                                                  |
 
-</details>ttps://opensource.org/licenses/MIT)
-[![Python 3.6+](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/)
+</details>
 
 ## ✨ Features
 
@@ -45,12 +59,37 @@
 # Make it executable
 chmod +x create_issue.py
 
-# Install dependencies
+# Install dependencies using virtual environment (required for modern Python)
+python3 -m venv venv
+source venv/bin/activate
 pip install requests
 
 # Set up your GitHub token
 export GITHUB_TOKEN="your_github_token_here"
 ```
+
+<details>
+<summary><strong>🤔 Why virtual environment?</strong></summary>
+
+Modern Python installations (especially via Homebrew) prevent system-wide package installation to avoid conflicts. A virtual environment creates an isolated Python environment just for this project.
+
+**To use the script later:**
+
+```bash
+# Activate the environment first (do this each time)
+source venv/bin/activate
+
+# Then run the script
+./create_issue.py
+```
+
+**Alternative:** If you prefer not to activate each time, you can run:
+
+```bash
+venv/bin/python create_issue.py
+```
+
+</details>
 
 ### 2. Run
 
@@ -80,7 +119,8 @@ The script will guide you step-by-step through:
 
 - Repository selection
 - Issue title
-- Description (with editor options)
+- Description (choose: type directly, start typing, or pick an editor)
+- Editor selection (if chosen)
 - Confirmation before creation
 
 </td>
@@ -156,17 +196,14 @@ The script looks for your GitHub token in this order:
 
 ## 📝 Writing Your Issue
 
-When using interactive mode, you have multiple options for entering your description:
+When using interactive mode, you'll see: **"Choose: (t)ype here, (e)ditor, or just start typing"**
 
-1. **Quick typing:** Type directly (use `\n` for line breaks)
-2. **Start immediately:** Just start typing when prompted
-3. **Full editor:** Choose `e` to pick from available editors:
-   - Nano (beginner-friendly)
-   - Vim (advanced users)
-   - VS Code (if installed)
-   - TextEdit (macOS)
-
-The script will detect which editors you have installed and let you choose.
+1. **Type directly:** Choose `t` or just start typing your description (use `\n` for line breaks)
+2. **Start immediately:** Just start typing when prompted (script will use that as description)
+3. **Editor mode:** Choose `e` to select from available editors:
+   - The script will detect installed editors and show a numbered list
+   - You pick the number of your preferred editor
+   - Available: Nano, Vim, Vi, VS Code, TextEdit
 
 ---
 
@@ -193,7 +230,7 @@ The script will detect which editors you have installed and let you choose.
 
 **Missing the requests library?**
 
-- Install it with: `pip install requests`
+- Install with virtual environment: `python3 -m venv venv && source venv/bin/activate && pip install requests`
 
 **Getting a 404 error?**
 

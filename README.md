@@ -35,7 +35,8 @@
 
 - 🧙‍♂️ **Interactive wizard** - Step-by-step guidance for beginners
 - ⚡ **Command-line mode** - Lightning-fast issue creation
-- 📝 **Multiple input methods** - Type inline, use `\n`, or open your favorite editor
+- � **Batch creation** - Create multiple issues from JSON file with smart file search
+- �📝 **Multiple input methods** - Type inline, use `\n`, or open your favorite editor
 - 🎨 **Editor detection** - Automatically finds and lets you choose from available editors
 - 🔒 **Secure token handling** - Multiple authentication methods
 - 🌐 **Flexible URL parsing** - Works with any GitHub URL format
@@ -139,6 +140,27 @@ Quick one-liner for experienced users who know exactly what they want to create.
 
 </td>
 </tr>
+<tr>
+<td colspan="2">
+
+### 📦 Batch Mode
+
+_Create multiple issues from a JSON file_
+
+```bash
+./create_issue.py "repo_url" --batch issues.json
+```
+
+**Interactive Batch Selection:** When using the wizard, you get smart file search:
+
+- **Smart matching**: Type `batch` → finds "batch issues.json"
+- **Partial names**: Type `issues` → finds all files with "issues" in the name
+- **Browse files**: See all files in current directory
+- **JSON filter**: Show only `.json` files
+- **Search**: Find files containing any text
+
+</td>
+</tr>
 </table>
 
 ### 💡 Examples
@@ -155,6 +177,12 @@ Quick one-liner for experienced users who know exactly what they want to create.
 
 # Short format
 ./create_issue.py "microsoft/vscode" "Feature request" "Add dark mode"
+
+# Batch mode - create multiple issues
+./create_issue.py "user/repo" --batch issues.json
+
+# Batch with custom token
+./create_issue.py "user/repo" -b batch-issues.json --token "your_token"
 
 # With custom token
 ./create_issue.py "user/repo" "Bug report" "Description" --token "your_token"

@@ -35,8 +35,8 @@
 
 - 🧙‍♂️ **Interactive wizard** - Step-by-step guidance for beginners
 - ⚡ **Command-line mode** - Lightning-fast issue creation
-- � **Batch creation** - Create multiple issues from JSON file with smart file search
-- �📝 **Multiple input methods** - Type inline, use `\n`, or open your favorite editor
+- 📦 **Batch creation** - Create multiple issues from JSON file with smart file search
+- 📝 **Multiple input methods** - Type inline, use `\n`, or open your favorite editor
 - 🎨 **Editor detection** - Automatically finds and lets you choose from available editors
 - 🔒 **Secure token handling** - Multiple authentication methods
 - 🌐 **Flexible URL parsing** - Works with any GitHub URL format
